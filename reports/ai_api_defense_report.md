@@ -1,6 +1,5 @@
 # Phase 9: AI-Powered API Threat Intelligence & Adaptive Anomaly Classification
-**Project:** AI API Security Lab (`ai-api-security-lab`)  
-**Author:** Sadiq Gumel  
+**Project:** AI API Security Lab (`ai-api-security-lab`)   
 **Status:** Completed & Verified  
 
 ---
