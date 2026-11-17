@@ -21,10 +21,7 @@ The feature engine computes a multidimensional distance vector combining tree is
 * **Mahalanobis Distance (**$D_M$**):** Measures the distance of an incoming request feature vector $x$ from the expected mean vector $\mu$ accounting for feature covariance $\Sigma$:
   
 $$D_M(x) = \sqrt{(x - \mu)^T \Sigma^{-1} (x - \mu)}$$
-  $$
-  D_M(x) = \sqrt{(x - \mu)^T \Sigma^{-1} (x - \mu)}
-  $$
-
+ 
 * **Combined Ensemble Threat Score:** $T_{score} = w_1 s_{if} + w_2 s_{lof} + w_3 \sigma(D_M)$
 
 ### B. Markov Transition Sequence Graph
