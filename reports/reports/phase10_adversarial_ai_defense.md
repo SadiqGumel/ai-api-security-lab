@@ -1,4 +1,4 @@
-# Phase 10: Adversarial AI API Defense & Self-Healing Gateway
+# Phase 10: Adversarial AI API Defense — Ensemble Behavioral Graph Profiling, Concept-Drift Self-Retraining & Semantic Payload Inspection
 
 ## 1. Executive Summary
 Phase 10 of the AI-Driven API Security Lab introduces an enterprise-grade defense layer designed to neutralize sophisticated adversarial evasion, distributed scraping swarms, and zero-symbol semantic business-logic exploits. Operating under a strict **$0.00 local testing budget**, this module integrates multi-model anomaly consensus, cross-session sequence entropy tracking, asynchronous local LLM semantic inspection (Ollama), and poison-resistant online concept-drift self-retraining.
