@@ -20,7 +20,7 @@ The feature engine computes a multidimensional distance vector combining tree is
 
 * **Mahalanobis Distance (**$D_M$**):** Measures the distance of an incoming request feature vector $x$ from the expected mean vector $\mu$ accounting for feature covariance $\Sigma$:
   
-
+$$D_M(x) = \sqrt{(x - \mu)^T \Sigma^{-1} (x - \mu)}$$
   $$
   D_M(x) = \sqrt{(x - \mu)^T \Sigma^{-1} (x - \mu)}
   $$
