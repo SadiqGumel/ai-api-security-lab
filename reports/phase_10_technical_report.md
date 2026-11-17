@@ -1,4 +1,4 @@
-# Phase 10: Adversarial AI API Defense & Self-Healing Gateway
+# Phase 10: Adversarial AI API Defense — Ensemble Behavioral Graph Profiling, Concept-Drift Self-Retraining & Semantic Payload Inspection
 
 **Project:** AI API Security Lab (`ai-api-security-lab`)
 
