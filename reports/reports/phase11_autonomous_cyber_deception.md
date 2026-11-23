@@ -14,13 +14,13 @@ Phase 11 upgrades the API security gateway from a passive Layer-7 filter into an
 ## 2. Mathematical & Architectural Design
 
 ### A. Kernel-to-API Socket Attribution (`api_gateway/telemetry/kernelCorrelator.py`)
-Incoming connections (`peer_ip:peer_port`) are correlated against Linux socket telemetry (`ss -tin` / `/proc/net/tcp`) to extract:
-- Round-trip time ($\text{RTT}_{\text{ms}}$) and empirical RTT variance ($\sigma_{\text{RTT}}^2$)
-- Congestion window ($\text{cwnd}$), Maximum Segment Size ($\text{MSS}$), and retransmission counts
-- Transport stack fingerprint hash linking sessions from the same underlying TCP/IP stack even when `X-Forwarded-For` and `User-Agent` headers rotate
+Each incoming connection (`peer_ip:peer_port`) is matched with Linux kernel socket data from `ss -tin` and `/proc/net/tcp` to gather:
+- Round-trip time in milliseconds (`RTT_ms`) along with measured RTT variance (`sigma_RTT^2`)
+- Congestion window size (`cwnd`), Maximum Segment Size (`MSS`), and TCP retransmission counts
+- A transport stack fingerprint hash that ties sessions back to the same underlying TCP/IP stack even when `X-Forwarded-For` or `User-Agent` values change
 
-Transport feature vector fused into ML scoring:
-$$\mathbf{x}_{\text{tcp}} = \begin{bmatrix} \text{RTT}_{\text{ms}} & \sigma_{\text{RTT}}^2 & \text{cwnd} & \text{retrans} + 5 \cdot \mathbb{I}(\text{spoof\_detected}) \end{bmatrix}^T$$
+These transport metrics are combined into a feature vector for ML anomaly scoring:
+- `x_tcp = [RTT_ms, sigma_RTT^2, cwnd, retrans + 5 * I(spoof_detected)]^T`
 
 ### B. Differentially Private ML & Boundary Probing Defense (`api_gateway/ml/dpDefense.py`)
 To defend against model extraction, boundary probing, and membership inference:
